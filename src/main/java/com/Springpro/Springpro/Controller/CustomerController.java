@@ -64,6 +64,7 @@ public class CustomerController {
         return ResponseEntity.ok("تم إنشاء حساب المستخدم بنجاح.");
     }
 
+
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody Customer customer) {
         // يمكنك إجراء عمليات التحقق والتحقق من صحة بيانات تسجيل الدخول هنا
