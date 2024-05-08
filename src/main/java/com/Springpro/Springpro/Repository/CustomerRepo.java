@@ -9,5 +9,8 @@ import org.springframework.stereotype.Repository;
 public interface CustomerRepo extends JpaRepository<Customer, Integer> {
     // يمكنك إضافة طرق إضافية خاصة بالاستعلامات المخصصة هنا
     void deleteById(int id);
-    Customer findByUsernameAndPassword(String username, String password);
+
+    Customer findByUsername(String username);
+
+    Customer findByEmail(String email);
 }

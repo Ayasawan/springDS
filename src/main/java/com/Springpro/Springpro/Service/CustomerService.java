@@ -5,6 +5,8 @@ import com.Springpro.Springpro.Entity.Customer;
 import com.Springpro.Springpro.Repository.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -37,19 +39,29 @@ public class CustomerService  {
     }
 
 
-    public Customer registerCustomer(Customer customer) {
-        // يمكنك إجراء العمليات المطلوبة هنا لحفظ تفاصيل العميل الجديد في قاعدة البيانات
-        // على سبيل المثال، يمكنك إضافة قواعد الصحة والتحقق من عدم تكرار اسم المستخدم
-        // يمكنك تعيين قيمة افتراضية لحقل ID أو توليد قيمة فريدة جديدة
-        customer.setId(0); // تعيين قيمة افتراضية للآن
 
+    public Customer saveCustomer(Customer customer) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(customer.getPassword());
+        customer.setPassword(encodedPassword);
         return customerRepo.save(customer);
     }
 
-    public Customer loginCustomer(String username, String password) {
-        // يمكنك إجراء العمليات المطلوبة هنا لتسجيل الدخول
-        // يمكنك فحص اسم المستخدم وكلمة المرور في قاعدة البيانات
-        // وإرجاع العميل إذا تطابقت المعلومات، وإلا يمكنك إرجاع قيمة null أو معالجة الخطأ بشكل مناسب
-        return customerRepo.findByUsernameAndPassword(username, password);
+    public Customer authenticate(String username, String password) {
+        Customer customer = customerRepo.findByUsername(username);
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        if (customer != null && passwordEncoder.matches(password, customer.getPassword())) {
+            return customer;
+        } else {
+            return null;
+        }
+    }
+
+    public boolean isUsernameExists(String username) {
+        return customerRepo.findByUsername(username) != null;
+    }
+
+    public boolean isEmailExists(String email) {
+        return customerRepo.findByEmail(email) != null;
     }
 }

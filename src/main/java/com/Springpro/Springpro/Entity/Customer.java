@@ -11,17 +11,21 @@ import lombok.NoArgsConstructor;
 @Table(name = "Customer_DB")
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Customer {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     private String username;
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "email", unique = true)
+    private String email;
 
     @Column(name = "phone")
     private String phone;
@@ -30,6 +34,7 @@ public class Customer {
     @Column(name = "location")
     private String location;
 }
+
 
 
 
