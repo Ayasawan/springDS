@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "Product_DB")
@@ -27,4 +29,7 @@ public class Product {
 
     @Column(name = "quantity")
     private int quantity;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Order> orders;
 }
