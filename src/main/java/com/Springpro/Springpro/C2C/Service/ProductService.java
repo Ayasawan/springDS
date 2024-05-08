@@ -1,7 +1,7 @@
-package com.Springpro.Springpro.Service;
+package com.Springpro.Springpro.C2C.Service;
 
-import com.Springpro.Springpro.Entity.Product;
-import com.Springpro.Springpro.Repository.ProductRepo;
+import com.Springpro.Springpro.C2C.Entity.Product;
+import com.Springpro.Springpro.C2C.Repository.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package com.Springpro.Springpro.Controller;
+package com.Springpro.Springpro.C2C.Controller;
 
-import com.Springpro.Springpro.Entity.Product;
-import com.Springpro.Springpro.Service.ProductService;
+import com.Springpro.Springpro.C2C.Entity.Product;
+import com.Springpro.Springpro.C2C.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;

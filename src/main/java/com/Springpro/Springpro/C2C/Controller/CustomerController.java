@@ -1,7 +1,7 @@
-package com.Springpro.Springpro.Controller;
+package com.Springpro.Springpro.C2C.Controller;
 
-import com.Springpro.Springpro.Entity.Customer;
-import com.Springpro.Springpro.Service.CustomerService;
+import com.Springpro.Springpro.C2C.Entity.Customer;
+import com.Springpro.Springpro.C2C.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,7 @@
-package com.Springpro.Springpro.Service;
+package com.Springpro.Springpro.C2C.Service;
 
-import com.Springpro.Springpro.Entity.Order;
-import com.Springpro.Springpro.Repository.OrderRepository;
+import com.Springpro.Springpro.C2C.Entity.Order;
+import com.Springpro.Springpro.C2C.Repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

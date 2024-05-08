@@ -1,4 +1,4 @@
-package com.Springpro.Springpro.Entity;
+package com.Springpro.Springpro.C2C.Entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

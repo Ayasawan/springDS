@@ -1,8 +1,8 @@
-package com.Springpro.Springpro.Service;
+package com.Springpro.Springpro.C2C.Service;
 
 
-import com.Springpro.Springpro.Entity.Customer;
-import com.Springpro.Springpro.Repository.CustomerRepo;
+import com.Springpro.Springpro.C2C.Entity.Customer;
+import com.Springpro.Springpro.C2C.Repository.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
