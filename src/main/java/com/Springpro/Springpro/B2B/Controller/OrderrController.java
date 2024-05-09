@@ -27,7 +27,11 @@ public class OrderrController {
         List<ProdOrdd> prodOrds = prodOrdRepository.findByOrderId(orderr.getId());
 
         for (ProdOrdd prodOrd : prodOrds) {
+<<<<<<< HEAD
             double quantity =orderr.getQuantity();
+=======
+            double quantity =order.getQuantity();
+>>>>>>> 3d7ab72e7df1d5e3db68db225c5d2d8795f1d922
             double price = prodOrd.getProductt().getPrice();
 
             totalPrice += quantity * price;
