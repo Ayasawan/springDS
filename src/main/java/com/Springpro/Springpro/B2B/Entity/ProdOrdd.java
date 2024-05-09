@@ -23,7 +23,7 @@ public class ProdOrdd {
     @Getter
     @ManyToOne
     @JoinColumn(name = "orderr_id", referencedColumnName = "id")
-    private Orderr orderr;
+    private Quest orderr;
 
 
     public Object getId() {

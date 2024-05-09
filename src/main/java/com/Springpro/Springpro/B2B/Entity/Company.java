@@ -31,7 +31,7 @@ public class Company {
     private String location;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
-    private List<Orderr> orders;
+    private List<Quest> orders;
 
 <<<<<<< HEAD
     @OneToMany(mappedBy = "companyy", cascade = CascadeType.ALL)
