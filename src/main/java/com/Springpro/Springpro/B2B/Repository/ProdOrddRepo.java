@@ -1,13 +1,13 @@
 package com.Springpro.Springpro.B2B.Repository;
 
-import com.Springpro.Springpro.B2B.Entity.ProdOrd;
+import com.Springpro.Springpro.B2B.Entity.ProdOrdd;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ProdOrdRepo extends JpaRepository<ProdOrd, Long> {
+public interface ProdOrddRepo extends JpaRepository<ProdOrdd, Long> {
     // Add custom queries or additional methods if needed
-    List<ProdOrd> findByOrderId(Long orderId);
+    List<ProdOrdd> findByOrderId(Long orderId);
 }

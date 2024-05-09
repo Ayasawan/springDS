@@ -1,27 +1,25 @@
 package com.Springpro.Springpro.B2B.Service;
 
-import com.Springpro.Springpro.B2B.Entity.Order;
-import com.Springpro.Springpro.B2B.Entity.ProdOrd;
-import com.Springpro.Springpro.B2B.Repository.ProdOrdRepo;
+import com.Springpro.Springpro.B2B.Entity.ProdOrdd;
+import com.Springpro.Springpro.B2B.Repository.ProdOrddRepo;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
-public class ProdOrdService {
-    private final ProdOrdRepo prodOrdRepository;
+public class ProdOrddService {
+    private final ProdOrddRepo prodOrdRepository;
 
-    public ProdOrdService(ProdOrdRepo prodOrdRepository) {
+    public ProdOrddService(ProdOrddRepo prodOrdRepository) {
         this.prodOrdRepository = prodOrdRepository;
     }
 
-    public ProdOrd createProdOrd(ProdOrd prodOrd) {
+    public ProdOrdd createProdOrd(ProdOrdd prodOrd) {
         return prodOrdRepository.save(prodOrd);
     }
 
-    public ProdOrd updateProdOrd(Long id, ProdOrd prodOrd) {
-        ProdOrd existingProdOrd = getProdOrdById(id);
+    public ProdOrdd updateProdOrd(Long id, ProdOrdd prodOrd) {
+        ProdOrdd existingProdOrd = getProdOrdById(id);
         existingProdOrd.setOrder(prodOrd.getOrder());
         existingProdOrd.setProduct(prodOrd.getProduct());
         return prodOrdRepository.save(existingProdOrd);
@@ -31,7 +29,7 @@ public class ProdOrdService {
         prodOrdRepository.deleteById(id);
     }
 
-    public ProdOrd getProdOrdById(Long id) {
+    public ProdOrdd getProdOrdById(Long id) {
         return prodOrdRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("ProdOrd not found with id: " + id));
     }

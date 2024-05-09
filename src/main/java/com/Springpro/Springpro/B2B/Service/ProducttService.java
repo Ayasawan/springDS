@@ -1,7 +1,7 @@
 package com.Springpro.Springpro.B2B.Service;
 
-import com.Springpro.Springpro.B2B.Entity.Product;
-import com.Springpro.Springpro.B2B.Repository.ProductRepo;
+import com.Springpro.Springpro.B2B.Entity.Productt;
+import com.Springpro.Springpro.B2B.Repository.ProducttRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProductService {
+public class ProducttService {
 
     @Autowired
-    private ProductRepo productRepo;
+    private ProducttRepo productRepo;
 
-    public Product saveDetails(Product product) {
+    public Productt saveDetails(Productt product) {
         return productRepo.save(product);
     }
 
@@ -22,15 +22,15 @@ public class ProductService {
         productRepo.deleteById(id);
     }
 
-    public Product updateProduct(Product product) {
+    public Productt updateProduct(Productt product) {
         return productRepo.save(product);
     }
 
-    public List<Product> getAllProducts() {
+    public List<Productt> getAllProducts() {
         return productRepo.findAll();
     }
 
-    public Optional<Product> getProductById(int id) {
+    public Optional<Productt> getProductById(int id) {
         return productRepo.findById(id);
     }
 }

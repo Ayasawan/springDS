@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "orders")
-public class Order {
+public class Orderr {
     @Setter
     @Getter
     @Id
@@ -29,17 +29,17 @@ public class Order {
     private double totalPrice;
 
     @ManyToOne
-    @JoinColumn(name = "company_id", referencedColumnName = "id")
+    @JoinColumn(name = "companyy_id", referencedColumnName = "id")
     private Company company;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<ProdOrd> prodOrds;
+    @OneToMany(mappedBy = "orderr", cascade = CascadeType.ALL)
+    private List<ProdOrdd> prodOrds;
 
 
-    public Order() {
+    public Orderr() {
     }
 
-    public Order(Company company, int quantity, double totalPrice) {
+    public Orderr(Company company, int quantity, double totalPrice) {
         this.company = company;
         this.quantity = quantity;
         this.totalPrice = totalPrice;

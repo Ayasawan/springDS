@@ -1,9 +1,9 @@
 package com.Springpro.Springpro.B2B.Controller;
 
-import com.Springpro.Springpro.B2B.Entity.Order;
-import com.Springpro.Springpro.B2B.Entity.ProdOrd;
-import com.Springpro.Springpro.B2B.Repository.ProdOrdRepo;
-import com.Springpro.Springpro.B2B.Service.OrderService;
+import com.Springpro.Springpro.B2B.Entity.Orderr;
+import com.Springpro.Springpro.B2B.Entity.ProdOrdd;
+import com.Springpro.Springpro.B2B.Repository.ProdOrddRepo;
+import com.Springpro.Springpro.B2B.Service.OrderrService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,21 +12,21 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/orders")
-public class OrderController {
+public class OrderrController {
     @Autowired
-    private OrderService orderService;
+    private OrderrService orderService;
 
     @Autowired
-    private ProdOrdRepo prodOrdRepository;
+    private ProdOrddRepo prodOrdRepository;
 
     @PostMapping("/add")
-    public String addOrder(@RequestBody Order order) {
+    public String addOrder(@RequestBody Orderr order) {
         double totalPrice = 0.0;
 
         // استرداد الكمية والسعر من الجدول الوسيط ProdOrd
-        List<ProdOrd> prodOrds = prodOrdRepository.findByOrderId(order.getId());
+        List<ProdOrdd> prodOrds = prodOrdRepository.findByOrderId(order.getId());
 
-        for (ProdOrd prodOrd : prodOrds) {
+        for (ProdOrdd prodOrd : prodOrds) {
             double quantity =order.getQuantity();
             double price = prodOrd.getProduct().getPrice();
 
@@ -35,17 +35,17 @@ public class OrderController {
 
         order.setTotalPrice(totalPrice);
 
-        Order savedOrder = orderService.saveOrder(order);
+        Orderr savedOrder = orderService.saveOrder(order);
 
         return "تمت إضافة الطلبية بنجاح. السعر الإجمالي: " + savedOrder.getTotalPrice();
     }
     @GetMapping("/all")
-    public List<Order> getAllOrders() {
+    public List<Orderr> getAllOrders() {
         return orderService.getAllOrders();
     }
 
     @GetMapping("/{id}")
-    public Optional<Order> getOrderById(@PathVariable("id") Long orderId) {
+    public Optional<Orderr> getOrderById(@PathVariable("id") Long orderId) {
         return orderService.getOrderById(orderId);
     }
 
@@ -55,7 +55,7 @@ public class OrderController {
     }
 
     @GetMapping("/company/{companyId}")
-    public List<Order> getOrdersByCompanyId(@PathVariable("companyId") Long companyId) {
+    public List<Orderr> getOrdersByCompanyId(@PathVariable("companyId") Long companyId) {
         return orderService.getOrdersByCompanyId(companyId);
     }
 }

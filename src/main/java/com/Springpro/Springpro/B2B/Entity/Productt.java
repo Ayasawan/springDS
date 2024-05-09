@@ -12,7 +12,7 @@ import java.util.List;
 @Table(name = "Product_DB")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class Productt {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,12 +28,10 @@ public class Product {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "company_id")
+    @JoinColumn(name = "companyy_id")
     private Company company;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    private List<Order> orders;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    private List<ProdOrd> prodOrds;
+    @OneToMany(mappedBy = "productt", cascade = CascadeType.ALL)
+    private List<ProdOrdd> prodOrds;
 }

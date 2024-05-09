@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "prod_ord")
-public class ProdOrd {
+public class ProdOrdd {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -16,14 +16,14 @@ public class ProdOrd {
     @Setter
     @Getter
     @ManyToOne
-    @JoinColumn(name = "product_id", referencedColumnName = "id")
-    private Product product;
+    @JoinColumn(name = "productt_id", referencedColumnName = "id")
+    private Productt productt;
 
     @Setter
     @Getter
     @ManyToOne
-    @JoinColumn(name = "order_id", referencedColumnName = "id")
-    private Order order;
+    @JoinColumn(name = "orderr_id", referencedColumnName = "id")
+    private Orderr orderr;
 
 
     public Object getId() {

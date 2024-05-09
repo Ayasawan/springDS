@@ -1,20 +1,20 @@
 package com.Springpro.Springpro.B2B.Controller;
 
-import com.Springpro.Springpro.B2B.Entity.Product;
-import com.Springpro.Springpro.B2B.Service.ProductService;
+import com.Springpro.Springpro.B2B.Entity.Productt;
+import com.Springpro.Springpro.B2B.Service.ProducttService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class ProductController {
+public class ProducttController {
 
     @Autowired
-    private ProductService productService;
+    private ProducttService productService;
 
     @PostMapping("/addProduct")
-    public Product addProduct(@RequestBody Product product) {
+    public Productt addProduct(@RequestBody Productt product) {
         return productService.saveDetails(product);
     }
 
@@ -24,18 +24,18 @@ public class ProductController {
     }
 
     @PutMapping("/updateProduct")
-    public Product updateProduct(@RequestBody Product product) {
+    public Productt updateProduct(@RequestBody Productt product) {
         productService.updateProduct(product);
         return product;
     }
 
     @GetMapping("/getAllProducts")
-    public List<Product> getAllProducts() {
+    public List<Productt> getAllProducts() {
         return productService.getAllProducts();
     }
 
     @GetMapping("/getProductById/{id}")
-    public Optional<Product> getProductById(@PathVariable int id) {
+    public Optional<Productt> getProductById(@PathVariable int id) {
         return productService.getProductById(id);
     }
 }
