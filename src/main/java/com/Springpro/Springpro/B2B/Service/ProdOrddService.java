@@ -20,8 +20,8 @@ public class ProdOrddService {
 
     public ProdOrdd updateProdOrd(Long id, ProdOrdd prodOrd) {
         ProdOrdd existingProdOrd = getProdOrdById(id);
-        existingProdOrd.setOrder(prodOrd.getOrder());
-        existingProdOrd.setProduct(prodOrd.getProduct());
+        existingProdOrd.setOrderr(prodOrd.getOrderr());
+        existingProdOrd.setProductt(prodOrd.getProductt());
         return prodOrdRepository.save(existingProdOrd);
     }
 

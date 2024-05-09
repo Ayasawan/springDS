@@ -28,7 +28,7 @@ public class OrderrController {
 
         for (ProdOrdd prodOrd : prodOrds) {
             double quantity =order.getQuantity();
-            double price = prodOrd.getProduct().getPrice();
+            double price = prodOrd.getProductt().getPrice();
 
             totalPrice += quantity * price;
         }

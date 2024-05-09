@@ -28,7 +28,7 @@ public class Productt {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "companyy_id")
+    @JoinColumn(name = "company_id")
     private Company company;
 
 

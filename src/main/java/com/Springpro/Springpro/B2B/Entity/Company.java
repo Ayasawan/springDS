@@ -30,9 +30,9 @@ public class Company {
     @Column(name = "location")
     private String location;
 
-    @OneToMany(mappedBy = "companyy", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<Orderr> orders;
 
-    @OneToMany(mappedBy = "companyy", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<Productt> products;
 }

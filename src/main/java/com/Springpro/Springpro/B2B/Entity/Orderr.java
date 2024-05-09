@@ -29,7 +29,7 @@ public class Orderr {
     private double totalPrice;
 
     @ManyToOne
-    @JoinColumn(name = "companyy_id", referencedColumnName = "id")
+    @JoinColumn(name = "company_id", referencedColumnName = "id")
     private Company company;
 
     @OneToMany(mappedBy = "orderr", cascade = CascadeType.ALL)
