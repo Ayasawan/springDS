@@ -33,4 +33,8 @@ public class ReproducerService {
     public Optional<Reproducer> getReproducerById(int id) {
         return reproducerRepo.findById(id);
     }
+
+    public boolean isReproducerExists(int reproducerId) {
+        return reproducerRepo.existsById(reproducerId);
+    }
 }

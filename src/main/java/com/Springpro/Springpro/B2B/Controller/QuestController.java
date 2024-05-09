@@ -1,12 +1,17 @@
 package com.Springpro.Springpro.B2B.Controller;
 
+import com.Springpro.Springpro.B2B.Entity.Company;
 import com.Springpro.Springpro.B2B.Entity.Quest;
 import com.Springpro.Springpro.B2B.Entity.ProdOrdd;
+import com.Springpro.Springpro.B2B.Entity.Reproducer;
 import com.Springpro.Springpro.B2B.Repository.ProdOrddRepo;
+import com.Springpro.Springpro.B2B.Service.CompanyService;
 import com.Springpro.Springpro.B2B.Service.QuestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,27 +23,44 @@ public class QuestController {
 
     @Autowired
     private ProdOrddRepo prodOrddRepository;
+    private CompanyService companyService;
+//
+//    private ReproducerService reproducerService;
+//
+//    @PostMapping("/addQuest")
+//    public String addQuest(@RequestBody Quest quest, Principal principal) {
+//        String loggedInCompany = null;
+//        if (principal != null) {
+//            loggedInCompany = principal.getName();
+//        }
+//
+//        if (loggedInCompany != null) {
+//            Company company = companyService.getCompanyByName(loggedInCompany);
+//            if (company != null) {
+//                quest.setCompany(company);
+//
+//                // ابحث عن المنتج بالرقم المطلوب
+//                Reproducer reproducer = reproducerService.getReproducerById(quest.getReproducer().getId());
+//                if (reproducer != null) {
+//                    // قم بتخفيض كمية المنتج بمقدار 1
+//                    int quantity = reproducer.getQuantity() - 1;
+//                    reproducer.setQuantity(quantity);
+//                    reproducerService.saveReproducer(reproducer);
+//
+//                    if (quantity == 0) {
+//                        return "عذرًا، لم يعد هذا المنتج متوفرًا.";
+//                    } else {
+//                        // قم بإرسال رسالة تم الشراء مع سعر المنتج
+//                        double price = reproducer.getPrice();
+//                        return "تم الشراء. سعر المنتج: " + price;
+//                    }
+//                }
+//            }
+//        }
+//
+//        return "حدث خطأ في إضافة الطلب.";
+//    }
 
-    @PostMapping("/add")
-    public String addQuest(@RequestBody Quest quest) {
-        double totalPrice = 0.0;
-
-        // استرداد الكمية والسعر من الجدول الوسيط ProdOrd
-        List<ProdOrdd> prodOrds = prodOrddRepository.findByQuestId(quest.getId());
-
-        for (ProdOrdd prodOrd : prodOrds) {
-            double quantity = quest.getQuantity();
-            double price = prodOrd.getReproducer().getPrice();
-
-            totalPrice += quantity * price;
-        }
-
-        quest.setTotalPrice(totalPrice);
-
-        Quest savedQuest = questService.saveQuest(quest);
-
-        return "تمت إضافة الطلبية بنجاح. السعر الإجمالي: " + savedQuest.getTotalPrice();
-    }
 
     @GetMapping("/all")
     public List<Quest> getAllQuests() {

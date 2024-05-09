@@ -27,10 +27,11 @@ public class Reproducer {
     @Column(name = "description")
     private String description;
 
+
     @ManyToOne
-    @JoinColumn(name = "company_id")
+    @JoinColumn(name = "company_id", referencedColumnName = "id")
     private Company company;
 
-    @OneToMany(mappedBy = "reproducer", cascade = CascadeType.ALL)
-    private List<ProdOrdd> prodOrds;
+//    @OneToMany(mappedBy = "reproducer", cascade = CascadeType.ALL)
+//    private List<ProdOrdd> prodOrds;
 }

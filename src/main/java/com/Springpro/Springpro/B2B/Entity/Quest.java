@@ -16,34 +16,37 @@ public class Quest {
     @Column(name = "id")
     private Long id;
 
-    @Setter
-    @Column(name = "quantity")
-    private int quantity;
+//    @Getter
+//    @Setter
+//    @Column(name = "quantity")
+//    private int quantity;
+
+//    @Getter
+//    @Setter
+//    @Column(name = "total_price")
+//    private double totalPrice;
+
 
     @Setter
-    @Getter
-    @Column(name = "total_price")
-    private double totalPrice;
-
     @ManyToOne
     @JoinColumn(name = "company_id", referencedColumnName = "id")
     private Company company;
 
-    @OneToMany(mappedBy = "quest", cascade = CascadeType.ALL)
-    private List<ProdOrdd> prodOrds;
 
-    public Quest() {
-    }
+    @ManyToOne
+    @JoinColumn(name = "reproducer_id", referencedColumnName = "id")
+    private Reproducer reproducer;
 
-    public Quest(Company company, int quantity, double totalPrice) {
-        this.company = company;
-        this.quantity = quantity;
-        this.totalPrice = totalPrice;
-    }
 
-    public double getQuantity() {
-        return quantity;
-    }
+
+//    @OneToMany(mappedBy = "quest", cascade = CascadeType.ALL)
+//    private List<ProdOrdd> prodOrds;
+
+
+
+
+
+
 
     // Getters and setters
     // ...
