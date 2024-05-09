@@ -20,22 +20,22 @@ public class OrderrController {
     private ProdOrddRepo prodOrdRepository;
 
     @PostMapping("/add")
-    public String addOrder(@RequestBody Orderr order) {
+    public String addOrder(@RequestBody Orderr orderr) {
         double totalPrice = 0.0;
 
         // استرداد الكمية والسعر من الجدول الوسيط ProdOrd
-        List<ProdOrdd> prodOrds = prodOrdRepository.findByOrderId(order.getId());
+        List<ProdOrdd> prodOrds = prodOrdRepository.findByOrderId(orderr.getId());
 
         for (ProdOrdd prodOrd : prodOrds) {
-            double quantity =order.getQuantity();
-            double price = prodOrd.getProduct().getPrice();
+            double quantity =orderr.getQuantity();
+            double price = prodOrd.getProductt().getPrice();
 
             totalPrice += quantity * price;
         }
 
-        order.setTotalPrice(totalPrice);
+        orderr.setTotalPrice(totalPrice);
 
-        Orderr savedOrder = orderService.saveOrder(order);
+        Orderr savedOrder = orderService.saveOrder(orderr);
 
         return "تمت إضافة الطلبية بنجاح. السعر الإجمالي: " + savedOrder.getTotalPrice();
     }

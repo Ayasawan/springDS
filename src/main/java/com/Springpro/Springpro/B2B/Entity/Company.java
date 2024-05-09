@@ -34,5 +34,5 @@ public class Company {
     private List<Orderr> orders;
 
     @OneToMany(mappedBy = "companyy", cascade = CascadeType.ALL)
-    private List<Productt> products;
+    private List<Reproducer> products;
 }

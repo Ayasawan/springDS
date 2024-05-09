@@ -17,7 +17,7 @@ public class ProdOrdd {
     @Getter
     @ManyToOne
     @JoinColumn(name = "productt_id", referencedColumnName = "id")
-    private Productt productt;
+    private Reproducer productt;
 
     @Setter
     @Getter

@@ -9,10 +9,10 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "Product_DB")
+@Table(name = "Reproducer_DB")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Productt {
+public class Reproducer {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,10 +28,9 @@ public class Productt {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "companyy_id")
+    @JoinColumn(name = "company_id")
     private Company company;
 
-
-    @OneToMany(mappedBy = "productt", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "reproducer", cascade = CascadeType.ALL)
     private List<ProdOrdd> prodOrds;
 }
