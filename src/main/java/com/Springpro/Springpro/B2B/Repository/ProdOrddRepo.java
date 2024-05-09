@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface ProdOrddRepo extends JpaRepository<ProdOrdd, Long> {
     // Add custom queries or additional methods if needed
-    List<ProdOrdd> findByOrderId(Long orderId);
+    List<ProdOrdd> findByQuestId(Long questId);
 }

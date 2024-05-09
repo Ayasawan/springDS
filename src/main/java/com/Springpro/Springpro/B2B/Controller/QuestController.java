@@ -24,11 +24,11 @@ public class QuestController {
         double totalPrice = 0.0;
 
         // استرداد الكمية والسعر من الجدول الوسيط ProdOrd
-        List<ProdOrdd> prodOrds = prodOrddRepository.findByOrderId(quest.getId());
+        List<ProdOrdd> prodOrds = prodOrddRepository.findByQuestId(quest.getId());
 
         for (ProdOrdd prodOrd : prodOrds) {
             double quantity = quest.getQuantity();
-            double price = prodOrd.getProductt().getPrice();
+            double price = prodOrd.getReproducer().getPrice();
 
             totalPrice += quantity * price;
         }

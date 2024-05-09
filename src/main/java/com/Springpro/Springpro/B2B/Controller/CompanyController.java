@@ -17,7 +17,7 @@ public class CompanyController {
     @Autowired
     private CompanyService companyService;
 
-    @PostMapping("/register")
+    @PostMapping("/registerCompany")
     public ResponseEntity<String> register(@RequestBody Company company) {
         if (companyService.isEmailExists(company.getEmail())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("البريد الإلكتروني موجود بالفعل.");
@@ -27,7 +27,7 @@ public class CompanyController {
         return ResponseEntity.ok("تم إنشاء حساب الشركة بنجاح.");
     }
 
-    @PostMapping("/login")
+    @PostMapping("/loginCompany")
     public ResponseEntity<String> login(@RequestBody Company company) {
         Company authenticatedCompany = companyService.authenticate(company.getEmail(), company.getPassword());
         if (authenticatedCompany != null) {

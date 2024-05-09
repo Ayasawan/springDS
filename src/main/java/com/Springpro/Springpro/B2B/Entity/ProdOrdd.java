@@ -16,14 +16,14 @@ public class ProdOrdd {
     @Setter
     @Getter
     @ManyToOne
-    @JoinColumn(name = "productt_id", referencedColumnName = "id")
-    private Reproducer productt;
+    @JoinColumn(name = "Reproducer_id", referencedColumnName = "id")
+    private Reproducer reproducer;
 
     @Setter
     @Getter
     @ManyToOne
-    @JoinColumn(name = "orderr_id", referencedColumnName = "id")
-    private Quest orderr;
+    @JoinColumn(name = "quest_id", referencedColumnName = "id")
+    private Quest quest;
 
 
     public Object getId() {
