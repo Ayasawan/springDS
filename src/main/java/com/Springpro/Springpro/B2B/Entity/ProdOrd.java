@@ -26,6 +26,10 @@ public class ProdOrd {
     private Order order;
 
 
+    public Object getId() {
+        return id;
+    }
+
 }
 
 

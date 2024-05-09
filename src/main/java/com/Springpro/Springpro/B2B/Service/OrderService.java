@@ -1,6 +1,7 @@
 package com.Springpro.Springpro.B2B.Service;
 
 import com.Springpro.Springpro.B2B.Entity.Order;
+import com.Springpro.Springpro.B2B.Entity.ProdOrd;
 import com.Springpro.Springpro.B2B.Repository.OrderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,4 +33,7 @@ public class OrderService {
     public List<Order> getOrdersByCompanyId(Long companyId) {
         return orderRepository.findByCompanyId(companyId);
     }
+
+
+
 }
